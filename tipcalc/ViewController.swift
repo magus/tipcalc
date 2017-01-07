@@ -23,6 +23,10 @@ class ViewController: UIViewController {
         
         setDefaultTip();
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setDefaultTip();
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
