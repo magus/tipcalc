@@ -22,10 +22,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         setDefaultTip();
+        setLabels();
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setDefaultTip();
+        setLabels();
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,18 +38,22 @@ class ViewController: UIViewController {
     func setDefaultTip() {
         tipSelected.selectedSegmentIndex = Utils.getDefaultTip();
     }
-
-    @IBAction func onTap(_ sender: Any) {
-        view.endEditing(true);
-    }
-
-    @IBAction func calculateTip(_ sender: AnyObject) {
+    
+    func setLabels() {
         let bill = Double(billField.text!) ?? 0;
         let tip = bill * tipPercentages[tipSelected.selectedSegmentIndex];
         let total = tip + bill;
         
         tipLabel.text = String(format: "$%.2f", tip);
         totalLabel.text = String(format: "$%.2f", total);
+    }
+
+    @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true);
+    }
+
+    @IBAction func calculateTip(_ sender: AnyObject) {
+        setLabels();
     }
 }
 
