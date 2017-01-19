@@ -53,8 +53,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onTap(_ sender: Any) {
-        // Dismiss keyboard
-        billField.resignFirstResponder();
+        // // Dismiss keyboard
+        // billField.resignFirstResponder();
     }
 
     @IBAction func calculateTip(_ sender: AnyObject) {
