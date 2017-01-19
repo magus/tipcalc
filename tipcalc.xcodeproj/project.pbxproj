@@ -524,6 +524,7 @@
 				4FCC834F1E20DA7800FF7234 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4FCC83501E20DA7800FF7234 /* Build configuration list for PBXNativeTarget "tipcalcTests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +533,7 @@
 				4FCC83521E20DA7800FF7234 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4FCC83531E20DA7800FF7234 /* Build configuration list for PBXNativeTarget "tipcalcUITests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +542,7 @@
 				4FCC83551E20DA7800FF7234 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
