@@ -112,7 +112,7 @@ class ViewController: UIViewController {
             self.positionTipControl();
         }, completion: {
             (completed: Bool) in
-            print("animation completed", completed);
+            // print("animation completed", completed);
         });
     }
 
