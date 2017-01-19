@@ -62,6 +62,13 @@ class ViewController: UIViewController {
         tipSelected.selectedSegmentIndex = Utils.getDefaultTip();
     }
     
+    func formatCurrency(amount: Double)-> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.currency;
+        formatter.locale = NSLocale(localeIdentifier: "en_US") as Locale!
+        return formatter.string(from: amount as NSNumber)!;
+    }
+    
     func updateBill() {
         let billText = billField.text! as NSString;
         
@@ -80,7 +87,7 @@ class ViewController: UIViewController {
             return;
         }
         
-        billField.text = String(format: "$%.2f", billCents);
+        billField.text = formatCurrency(amount: billCents);
     }
     
     func setLabels() {
@@ -88,8 +95,8 @@ class ViewController: UIViewController {
         let tip = bill * tipPercentages[tipSelected.selectedSegmentIndex];
         let total = tip + bill;
         
-        tipLabel.text = String(format: "$%.2f", tip);
-        totalLabel.text = String(format: "$%.2f", total);
+        tipLabel.text = formatCurrency(amount: tip);
+        totalLabel.text = formatCurrency(amount: total);
         
         updateBill();
     }
