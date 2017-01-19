@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipSelected: UISegmentedControl!
     
+    let screenSize: CGRect = UIScreen.main.bounds;
     let tipPercentages = [0.15, 0.20, 0.25];
+    var keyboardHeight = 216.0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +44,8 @@ class ViewController: UIViewController {
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
-            print("keyboardSize.height", keyboardSize.height);
+        if let keyboardRect = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
+            keyboardHeight = Double(keyboardRect.height);
         }
     }
 
@@ -74,6 +76,20 @@ class ViewController: UIViewController {
 
     @IBAction func calculateTip(_ sender: AnyObject) {
         setLabels();
+        
+        let tipSelectHeight = Double(self.tipSelected.frame.height);
+        let yPos = Double(self.screenSize.height) - self.keyboardHeight - tipSelectHeight - 10.0;
+        
+        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 0.35, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
+            if ((self.billField.text) != "") {
+                self.tipSelected.frame.origin.y = CGFloat(yPos);
+            } else {
+                self.tipSelected.frame.origin.y = CGFloat(yPos + (2 * tipSelectHeight));
+            }
+        }, completion: {
+            (completed: Bool) in
+            print("animation finished");
+        });
     }
 }
 
