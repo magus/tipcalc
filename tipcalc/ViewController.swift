@@ -54,6 +54,8 @@ class ViewController: UIViewController {
         setDefaultTip();
         setLabels();
         billField.becomeFirstResponder();
+        
+        positionTipControl();
     }
     
     func setDefaultTip() {
@@ -68,6 +70,28 @@ class ViewController: UIViewController {
         tipLabel.text = String(format: "$%.2f", tip);
         totalLabel.text = String(format: "$%.2f", total);
     }
+    
+    func positionTipControl() {
+        let tipSelectHeight = Double(self.tipSelected.frame.height);
+        let yPos = Double(self.screenSize.height) - self.keyboardHeight - tipSelectHeight - 10.0;
+        
+        if ((self.billField.text) != "") {
+            self.tipSelected.frame.origin.y = CGFloat(yPos);
+        } else {
+            self.tipSelected.frame.origin.y = CGFloat(yPos + (2 * tipSelectHeight));
+        }
+    }
+    
+    func updatePositions() {
+        // Replace with a good spring
+        // e.g. https://github.com/facebook/pop
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
+            self.positionTipControl();
+        }, completion: {
+            (completed: Bool) in
+            print("animation completed", completed);
+        });
+    }
 
     @IBAction func onTap(_ sender: Any) {
         // // Dismiss keyboard
@@ -76,20 +100,7 @@ class ViewController: UIViewController {
 
     @IBAction func calculateTip(_ sender: AnyObject) {
         setLabels();
-        
-        let tipSelectHeight = Double(self.tipSelected.frame.height);
-        let yPos = Double(self.screenSize.height) - self.keyboardHeight - tipSelectHeight - 10.0;
-        
-        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 0.35, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
-            if ((self.billField.text) != "") {
-                self.tipSelected.frame.origin.y = CGFloat(yPos);
-            } else {
-                self.tipSelected.frame.origin.y = CGFloat(yPos + (2 * tipSelectHeight));
-            }
-        }, completion: {
-            (completed: Bool) in
-            print("animation finished");
-        });
+        updatePositions();
     }
 }
 
