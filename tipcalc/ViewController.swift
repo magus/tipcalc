@@ -69,29 +69,33 @@ class ViewController: UIViewController {
         return formatter.string(from: amount as NSNumber)!;
     }
     
-    func updateBill() {
-        let billText = billField.text! as NSString;
-        
-        if (billText == "") {
-            billField.text = nil;
-            return;
-        }
-        
+    func getBill()-> Double {
+        let billText = billField.text ?? "";
         let billNumbers = billText.components(
             separatedBy: NSCharacterSet.decimalDigits.inverted
         );
-        let billCents = 0.01 * Double(billNumbers.joined(separator: ""))!;
         
-        if (billCents <= 0) {
+        let billNumeric = Double(billNumbers.joined(separator: ""));
+        if (billNumeric == nil) {
+            return 0;
+        }
+        
+        return 0.01 * billNumeric!;
+    }
+    
+    func updateBill() {
+        let bill = getBill();
+        
+        if (bill <= 0) {
             billField.text = nil;
             return;
         }
         
-        billField.text = formatCurrency(amount: billCents);
+        billField.text = formatCurrency(amount: bill);
     }
     
     func setLabels() {
-        let bill = Double(billField.text!) ?? 0;
+        let bill = getBill();
         let tip = bill * tipPercentages[tipSelected.selectedSegmentIndex];
         let total = tip + bill;
         
@@ -102,6 +106,17 @@ class ViewController: UIViewController {
     }
     
     func positionTipControl() {
+        let tipSelectHeight = Double(self.tipSelected.frame.height);
+        let yPos = Double(self.screenSize.height) - self.keyboardHeight - tipSelectHeight - 10.0;
+        
+        if ((self.billField.text) != "") {
+            self.tipSelected.frame.origin.y = CGFloat(yPos);
+        } else {
+            self.tipSelected.frame.origin.y = CGFloat(yPos + (2 * tipSelectHeight));
+        }
+    }
+    
+    func positionTip() {
         let tipSelectHeight = Double(self.tipSelected.frame.height);
         let yPos = Double(self.screenSize.height) - self.keyboardHeight - tipSelectHeight - 10.0;
         
