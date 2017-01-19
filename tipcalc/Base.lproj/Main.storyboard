@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tipcalc-->
+        <!--💸-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tipcalc" customModuleProvider="target" sceneMemberID="viewController">
@@ -90,8 +90,8 @@
                             <outletCollection property="gestureRecognizers" destination="CeV-jn-2T3" appends="YES" id="30m-Di-U9k"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tipcalc" id="JP1-5o-jN7">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="T3u-iz-R3Z">
+                    <navigationItem key="navigationItem" title="💸" id="JP1-5o-jN7">
+                        <barButtonItem key="rightBarButtonItem" title="⚙" id="T3u-iz-R3Z">
                             <connections>
                                 <segue destination="DvV-h5-edz" kind="show" id="rk1-tK-OcZ"/>
                             </connections>
