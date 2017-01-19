@@ -62,6 +62,27 @@ class ViewController: UIViewController {
         tipSelected.selectedSegmentIndex = Utils.getDefaultTip();
     }
     
+    func updateBill() {
+        let billText = billField.text! as NSString;
+        
+        if (billText == "") {
+            billField.text = nil;
+            return;
+        }
+        
+        let billNumbers = billText.components(
+            separatedBy: NSCharacterSet.decimalDigits.inverted
+        );
+        let billCents = 0.01 * Double(billNumbers.joined(separator: ""))!;
+        
+        if (billCents <= 0) {
+            billField.text = nil;
+            return;
+        }
+        
+        billField.text = String(format: "$%.2f", billCents);
+    }
+    
     func setLabels() {
         let bill = Double(billField.text!) ?? 0;
         let tip = bill * tipPercentages[tipSelected.selectedSegmentIndex];
@@ -69,6 +90,8 @@ class ViewController: UIViewController {
         
         tipLabel.text = String(format: "$%.2f", tip);
         totalLabel.text = String(format: "$%.2f", total);
+        
+        updateBill();
     }
     
     func positionTipControl() {
