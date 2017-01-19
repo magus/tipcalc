@@ -53,6 +53,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onTap(_ sender: Any) {
+        // Dismiss keyboard
         billField.resignFirstResponder();
     }
 
