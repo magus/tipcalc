@@ -22,9 +22,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         onViewOpen();
+        
+        // Listen for keyboard frame changes
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil);
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
         onViewOpen();
     }
 
@@ -32,6 +36,17 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil);
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
+            print("keyboardSize.height", keyboardSize.height);
+        }
+    }
+
     
     func onViewOpen() {
         setDefaultTip();
