@@ -53,7 +53,6 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onTap(_ sender: Any) {
-        UIView.setAnimationsEnabled(true);
         billField.resignFirstResponder();
     }
 
