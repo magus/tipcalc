@@ -131,7 +131,14 @@ class ViewController: UIViewController {
         // Replace with a good spring
         // e.g. https://github.com/facebook/pop
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
+            
             self.positionTipControl();
+            // TODO: Decrease font size of bill and slide up
+            // TODO: Slide in tip and total from right, below bill
+            
+            // TODO: Increase font size of tip
+            // TODO: Increase font size of total
+            
         }, completion: {
             (completed: Bool) in
             // print("animation completed", completed);
