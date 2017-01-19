@@ -21,18 +21,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        setDefaultTip();
-        setLabels();
+        onViewOpen();
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setDefaultTip();
-        setLabels();
+        onViewOpen();
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func onViewOpen() {
+        setDefaultTip();
+        setLabels();
+        billField.becomeFirstResponder();
     }
     
     func setDefaultTip() {
@@ -49,7 +53,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onTap(_ sender: Any) {
-        view.endEditing(true);
+        UIView.setAnimationsEnabled(true);
+        billField.resignFirstResponder();
     }
 
     @IBAction func calculateTip(_ sender: AnyObject) {
