@@ -148,6 +148,14 @@ class ViewController: UIViewController {
         }
     }
     
+    func positionBill() {
+        if (self.billField.text != "") {
+            self.billField.frame.origin.y = 100;
+        } else {
+            self.billField.frame.origin.y = 200;
+        }
+    }
+    
     func positionTip() {
         if (self.billField.text != "") {
             self.tipLabel.frame.origin.x = 0;
@@ -169,11 +177,12 @@ class ViewController: UIViewController {
         // e.g. https://github.com/facebook/pop
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
             
-            self.positionTipControl();
             self.mainViewBackground();
             
+            self.positionBill();
             self.positionTip();
             self.positionTotal();
+            self.positionTipControl();
             
             // TODO: Decrease font size of bill and slide up
             // TODO: Slide in tip and total from right, below bill
