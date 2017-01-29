@@ -148,6 +148,22 @@ class ViewController: UIViewController {
         }
     }
     
+    func positionTip() {
+        if (self.billField.text != "") {
+            self.tipLabel.frame.origin.x = 0;
+        } else {
+            self.tipLabel.frame.origin.x = self.screenSize.width;
+        }
+    }
+    
+    func positionTotal() {
+        if (self.billField.text != "") {
+            self.totalLabel.frame.origin.x = 0;
+        } else {
+            self.totalLabel.frame.origin.x = self.screenSize.width;
+        }
+    }
+    
     func updatePositions() {
         // Replace with a good spring
         // e.g. https://github.com/facebook/pop
@@ -155,6 +171,9 @@ class ViewController: UIViewController {
             
             self.positionTipControl();
             self.mainViewBackground();
+            
+            self.positionTip();
+            self.positionTotal();
             
             // TODO: Decrease font size of bill and slide up
             // TODO: Slide in tip and total from right, below bill
