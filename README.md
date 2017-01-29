@@ -4,39 +4,38 @@ tipcalc is a tip calculator application for iOS.
 
 Submitted by: Noah Jorgensen
 
-Time spent: 4
+Time spent: ~6 hours
 
 ## User Stories
 
 The following **required** functionality is complete:
 
-* [ ] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
-* [ ] Settings page to change the default tip percentage.
+* [X] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
+* [X] Settings page to change the default tip percentage.
 
 The following **optional** features are implemented:
-* [ ] UI animations
+* [X] UI animations
 * [ ] Remembering the bill amount across app restarts (if <10mins)
-* [ ] Using locale-specific currency and currency thousands separators.
-* [ ] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
+* [X] Using locale-specific currency and currency thousands separators.
+* [X] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [X] Dollar Round setting (rounds to the nearest dollar, like I usually do when calculating a bill)
 
-## Video Walkthrough 
+## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
-
-(TODO: GIF WALKTHROUGH)
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-- Storyboards feel really clunky
-- Developing on a small Macbook Air screen
- 
+- Surprised at quality with minimal effort
+- UI animatinos are simple and add life
+- Storyboard development clicking and dragging feels really clunky
+- Developing on a small Macbook Air (screen and CPU limitations) is kind of slow
+
 ## License
 
     Copyright 2017 magus
