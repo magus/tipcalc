@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
+    @IBOutlet weak var actualTipLabel: UILabel!
     @IBOutlet weak var tipSelected: UISegmentedControl!
     
     let screenSize: CGRect = UIScreen.main.bounds;
@@ -121,7 +122,8 @@ class ViewController: UIViewController {
             total = tip + bill;
         }
         
-        tipLabel.text = String(format: "%@ (%@)", formatCurrency(amount: tip), formatPercent(amount: total == 0 ? 0 : tip/bill));
+        tipLabel.text = formatCurrency(amount: tip);
+        actualTipLabel.text = formatPercent(amount: total == 0 ? 0 : tip/bill);
         totalLabel.text = formatCurrency(amount: total);
         
         updateBill();
@@ -151,16 +153,22 @@ class ViewController: UIViewController {
     func positionBill() {
         if (self.billField.text != "") {
             self.billField.frame.origin.y = 100;
+            self.billField.frame.size.height = 56;
+            self.billField.font = self.billField.font?.withSize(56);
         } else {
             self.billField.frame.origin.y = 200;
+            self.billField.frame.size.height = 112;
+            self.billField.font = self.billField.font?.withSize(112);
         }
     }
     
     func positionTip() {
         if (self.billField.text != "") {
             self.tipLabel.frame.origin.x = 0;
+            self.actualTipLabel.frame.origin.x = 0;
         } else {
             self.tipLabel.frame.origin.x = self.screenSize.width;
+            self.actualTipLabel.frame.origin.x = self.screenSize.width;
         }
     }
     
