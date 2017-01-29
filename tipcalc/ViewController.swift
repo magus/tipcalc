@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipSelected: UISegmentedControl!
     
     let screenSize: CGRect = UIScreen.main.bounds;
-    let tipPercentages = [0.15, 0.20, 0.25];
+    let tipPercentages = [0.10, 0.15, 0.20];
     var keyboardHeight = 216.0;
     
     override func viewDidLoad() {
