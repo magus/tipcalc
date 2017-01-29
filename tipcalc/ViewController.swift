@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
@@ -132,19 +133,18 @@ class ViewController: UIViewController {
         
         if ((self.billField.text) != "") {
             self.tipSelected.frame.origin.y = CGFloat(yPos);
+            self.tipSelected.alpha = 1.0;
         } else {
             self.tipSelected.frame.origin.y = CGFloat(yPos + (2 * tipSelectHeight));
+            self.tipSelected.alpha = 0.0;
         }
     }
     
-    func positionTip() {
-        let tipSelectHeight = Double(self.tipSelected.frame.height);
-        let yPos = Double(self.screenSize.height) - self.keyboardHeight - tipSelectHeight - 10.0;
-        
-        if ((self.billField.text) != "") {
-            self.tipSelected.frame.origin.y = CGFloat(yPos);
+    func mainViewBackground() {
+        if (self.billField.text != "") {
+            self.mainView.backgroundColor = Colors.MoneyGreen;
         } else {
-            self.tipSelected.frame.origin.y = CGFloat(yPos + (2 * tipSelectHeight));
+            self.mainView.backgroundColor = UIColor.white;
         }
     }
     
@@ -154,6 +154,8 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
             
             self.positionTipControl();
+            self.mainViewBackground();
+            
             // TODO: Decrease font size of bill and slide up
             // TODO: Slide in tip and total from right, below bill
             
