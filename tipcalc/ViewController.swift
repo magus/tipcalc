@@ -69,6 +69,13 @@ class ViewController: UIViewController {
         return formatter.string(from: amount as NSNumber)!;
     }
     
+    func formatPercent(amount: Double)-> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.percent;
+        formatter.locale = NSLocale(localeIdentifier: "en_US") as Locale!
+        return formatter.string(from: amount as NSNumber)!;
+    }
+    
     func getBill()-> Double {
         let billText = billField.text ?? "";
         let billNumbers = billText.components(
@@ -111,7 +118,7 @@ class ViewController: UIViewController {
             total = tip + bill;
         }
         
-        tipLabel.text = formatCurrency(amount: tip);
+        tipLabel.text = String(format: "%@ (%@)", formatCurrency(amount: tip), formatPercent(amount: tip/total));
         totalLabel.text = formatCurrency(amount: total);
         
         updateBill();
