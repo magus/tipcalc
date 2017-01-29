@@ -25,9 +25,9 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+[![ScreenShot](https://raw.githubusercontent.com/magus/tipcalc/master/demo/demo.gif)](https://raw.githubusercontent.com/magus/tipcalc/master/demo/tipcalc.webm)
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIF created with Quicktime capture on iPhone 7 and [LiceCap](http://www.cockos.com/licecap/)
 
 ## Notes
 
