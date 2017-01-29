@@ -25,7 +25,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-[![ScreenShot](https://raw.githubusercontent.com/magus/tipcalc/master/demo/demo.gif)](https://raw.githubusercontent.com/magus/tipcalc/master/demo/tipcalc.webm)
+[![ScreenShot](https://raw.githubusercontent.com/magus/tipcalc/master/demo/demo.gif)]
 
 GIF created with Quicktime capture on iPhone 7 and [LiceCap](http://www.cockos.com/licecap/)
 
