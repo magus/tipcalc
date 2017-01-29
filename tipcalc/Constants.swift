@@ -10,5 +10,6 @@ import Foundation
 
 
 struct Settings {
-    static let DefaultTip = "Tipcalc_DefaultTipSettingKey";
+    static let DefaultTip = "Tipcalc_SettingKey_DefaultTip";
+    static let DollarRound = "Tipcalc_SettingKey_DollarRound";
 }

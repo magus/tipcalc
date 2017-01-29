@@ -100,7 +100,7 @@ class ViewController: UIViewController {
         // TODO: Setting flag to round to nearest dollar
         // e.g. 36.78 will round tip to get 37.00 total
         // math: integer the total, add one, subtract total from target, add difference to tip
-        // e.g. [4.78] 36.68 -> 36 + 1 = 37 -> 37 - 36.68 = 0.32 -> 0.32 + 4.78 = 5.10 tip 
+        // e.g. [4.78] 36.68 -> 36 + 1 = 37 -> 37 - 36.68 = 0.32 -> 0.32 + 4.78 = 5.10 tip
         
         let tip = bill * tipPercentages[tipSelected.selectedSegmentIndex];
         let total = tip + bill;

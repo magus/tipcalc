@@ -12,16 +12,18 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var defaultTipControl: UISegmentedControl!
     
+    @IBOutlet weak var dollarRoundSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        setDefaultTip();
+        initSettings();
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setDefaultTip();
+        initSettings();
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,8 +31,10 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setDefaultTip() {
+    func initSettings() {
         defaultTipControl.selectedSegmentIndex = Utils.getDefaultTip();
+        print("dollarRound", Utils.getDollarRound());
+        dollarRoundSwitch.setOn(Utils.getDollarRound(), animated: false);
     }
     
 
@@ -44,9 +48,12 @@ class SettingsViewController: UIViewController {
     }
     */
 
+    @IBAction func setDollarRound(_ sender: Any) {
+        print("setDollarRound", dollarRoundSwitch.isOn);
+        Utils.setDollarRound(value: dollarRoundSwitch.isOn)
+    }
+    
     @IBAction func setDefaultTip(_ sender: Any) {
-        let defaults = UserDefaults.standard;
-        defaults.set(defaultTipControl.selectedSegmentIndex, forKey: Settings.DefaultTip);
-        defaults.synchronize();
+        Utils.setDefaultTip(value: defaultTipControl.selectedSegmentIndex)
     }
 }

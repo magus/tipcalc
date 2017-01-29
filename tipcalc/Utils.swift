@@ -9,8 +9,23 @@
 import Foundation
 
 class Utils {
+    static let defaults = UserDefaults.standard;
+    
+    static func setDefaultTip(value: Int) {
+        defaults.set(value, forKey: Settings.DefaultTip);
+        defaults.synchronize();
+    }
+    
+    static func setDollarRound(value: Bool) {
+        defaults.set(value, forKey: Settings.DollarRound);
+        defaults.synchronize();
+    }
+    
     static func getDefaultTip() -> Int {
-        let defaults = UserDefaults.standard;
-        return defaults.integer(forKey: Settings.DefaultTip);
+        return Utils.defaults.integer(forKey: Settings.DefaultTip);
+    }
+    
+    static func getDollarRound() -> Bool {
+        return Utils.defaults.bool(forKey: Settings.DollarRound);
     }
 }
