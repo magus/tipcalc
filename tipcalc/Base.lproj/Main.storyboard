@@ -32,9 +32,9 @@
                                 <rect key="frame" x="16" y="593" width="343" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="10%"/>
-                                    <segment title="15%"/>
-                                    <segment title="20%"/>
+                                    <segment title="😐"/>
+                                    <segment title="😄"/>
+                                    <segment title="😍"/>
                                 </segments>
                                 <connections>
                                     <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="BUY-hW-Az2"/>
@@ -103,9 +103,9 @@
                                 <rect key="frame" x="16" y="167" width="343" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="10%"/>
-                                    <segment title="15%"/>
-                                    <segment title="20%"/>
+                                    <segment title="😐 (10%)"/>
+                                    <segment title="😄 (15%)"/>
+                                    <segment title="😍 (20%)"/>
                                 </segments>
                                 <connections>
                                     <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="pai-tk-7DX"/>

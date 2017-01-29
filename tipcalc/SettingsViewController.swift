@@ -19,6 +19,9 @@ class SettingsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        // Correct segmented control selected state for emojis
+        defaultTipControl.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.white], for:.selected)
+        
         initSettings();
     }
     

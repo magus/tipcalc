@@ -23,6 +23,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Correct segmented control selected state for emojis
+        tipSelected.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.white], for:.selected)
+        
         onViewOpen();
         
         // Listen for keyboard frame changes
