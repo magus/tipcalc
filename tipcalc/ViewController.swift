@@ -103,7 +103,6 @@ class ViewController: UIViewController {
     
     func setLabels() {
         let bill = getBill();
-        
         var tip = bill * tipPercentages[tipSelected.selectedSegmentIndex];
         var total = tip + bill;
         
@@ -111,14 +110,14 @@ class ViewController: UIViewController {
         // e.g. 36.78 will round tip to get 37.00 total
         // math: integer the total, add one, subtract total from target, add difference to tip
         // e.g. [4.78] 36.68 -> 36 + 1 = 37 -> 37 - 36.68 = 0.32 -> 0.32 + 4.78 = 5.10 tip
-        if (Utils.getDollarRound()) {
+        if (bill != 0 && Utils.getDollarRound()) {
             let target = round(total) >= 1 ? round(total) : 1;
             let change = target - total;
             tip += change;
             total = tip + bill;
         }
         
-        tipLabel.text = String(format: "%@ (%@)", formatCurrency(amount: tip), formatPercent(amount: tip/total));
+        tipLabel.text = String(format: "%@ (%@)", formatCurrency(amount: tip), formatPercent(amount: total == 0 ? 0 : tip/bill));
         totalLabel.text = formatCurrency(amount: total);
         
         updateBill();
