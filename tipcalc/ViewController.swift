@@ -115,7 +115,7 @@ class ViewController: UIViewController {
         // math: integer the total, add one, subtract total from target, add difference to tip
         // e.g. [4.78] 36.68 -> 36 + 1 = 37 -> 37 - 36.68 = 0.32 -> 0.32 + 4.78 = 5.10 tip
         if (bill != 0 && Utils.getDollarRound()) {
-            let target = round(total) >= 1 ? round(total) : 1;
+            let target = ceil(total) >= 1 ? ceil(total) : 1;
             let change = target - total;
             tip += change;
             total = tip + bill;
